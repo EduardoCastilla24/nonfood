@@ -12,7 +12,7 @@ import Layout from '../layouts/Layout.astro';
 				alt="Logotipo Hipermercado Tottus"
 				class="max-w-[6rem]">
 			<button
-				class="text-sm bg-white px-10 py-2 rounded-lg text-first-color flex gap-2 shadow-md hover:scale-[1.02] duration-300 transition-all text-center justify-center"
+				class="text-sm bg-white px-10 py-2 rounded-lg text-black flex gap-2 shadow-md hover:scale-[1.02] duration-300 transition-all text-center justify-center"
 				id="authorize_button">
 				<img
 					src="assets/google_icon.svg"
@@ -23,8 +23,8 @@ import Layout from '../layouts/Layout.astro';
 	</main>
 </Layout>
 		<!--================== SCRIPTS ==================-->
-		<script async defer type="module" src="./js/sheets/auth.js"></script>
-		<script async defer type="module" src="./js/sheets/login.js"></script>
+		<script async defer type="module" src="./js/sheets/auth.js" is:inline></script>
+		<script async defer type="module" src="./js/sheets/login.js" is:inline></script>
 <style>
 	main {
 		padding: 1rem;

@@ -3,6 +3,7 @@ import { createCardFile } from "./createFile.js";
 import { csvDataLists, parseTXT } from "./sheets/functions/parseData.js";
 import { filterData } from "./sheets/functions/filterData.js";
 import { sendDataToGoogleSheets } from "./sheets/functions/sendData.js";
+import { deleteAllCardFileContainers } from "./sheets/functions/clearData.js";
 
 const uploadInputs = document.querySelectorAll('.upload-file');
 const processButton = document.getElementById('processButton');
@@ -62,25 +63,4 @@ async function processFile(fileIndex, sectionId) {
     } else {
         console.log(`No se ha cargado el archivo con índice ${fileIndex} en la sección ${sectionId}.`);
     }
-}
-
-
-function deleteAllCardFileContainers() {
-    // Seleccionar todos los elementos .cardFile-container
-    const cardContainers = document.querySelectorAll('.cardFile-container');
-
-    // Iterar sobre cada contenedor
-    cardContainers.forEach((container, index) => {
-        // Aplicar la clase para animación de eliminación
-        container.classList.add('animate-delete');
-
-        // Esperar a que termine la animación (600ms)
-        setTimeout(() => {
-            document.getElementById(`section_cardFiles1`).innerHTML = '' ;
-            document.getElementById(`section_cardFiles2`).innerHTML = '' ;
-            document.getElementById(`section_cardFiles3`).innerHTML = '' ;
-
-            container.remove(); // Eliminar el contenedor después de la animación
-        }, '600'); // Añadir un retardo progresivo para una animación escalonada
-    });
 }

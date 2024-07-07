@@ -41,6 +41,7 @@ import Modal from "../components/Modal.astro"
         cardContainer.classList.add('animate-delete')
         setTimeout(() => {
             document.getElementById(`section_cardFiles${sectionId}`).innerHTML = '' ;
+            document.getElementById(`section_cardFiles${sectionId}`).classList.add('hidden') ;
             cardContainer.remove();
         }, "500");
     }

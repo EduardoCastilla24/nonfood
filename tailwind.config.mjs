@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}', './public/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
             transitionProperty: {
@@ -12,7 +12,7 @@ export default {
                 'auto': ' repeat(auto-fit, minmax(250px, 1fr))',
             },
             colors: {
-                'first-color': '#1e1e1e',
+                'first-color': '#6A9512',
                 'gray-color': '#a4a4a4',
                 'hover-color': '#efefef',
                 'overlay-color': 'rgba(0, 0, 0, .4)',
