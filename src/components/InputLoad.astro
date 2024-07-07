@@ -1,0 +1,22 @@
+---
+interface Props {
+	title: string;
+    input_id: string;
+    section_id: string;
+}
+
+const {  title, input_id, section_id } = Astro.props;
+---
+
+<article class="flex flex-col items-center justify-center gap-4 h-fit w-full cursor-pointer">
+    <label for={input_id} class="flex flex-col items-center p-4 justify-center border-2 border-gray-300 border-dashed rounded-lg cursor-pointer h-[10rem] bg-gray-50 hover:bg-gray-100 w-full bs:w-[15rem] transition-colors duration-300">
+        <div class="flex flex-col items-center justify-center text-gray-color">
+            <i class='text-xl bx bx-cloud-upload hover:cursor-pointer'></i>
+            <p class="mb-2 text-[.8rem] text-center text-primary-color"><span class="font-semibold">Haz click para subir el archivo {title}</span></p>
+            <p class="text-xs text-center">Recuerda solo seleccionar formatos .txt</p>
+        </div>
+        <input id={input_id} type="file" class="hidden upload-file" accept=".txt" multiple/>
+    </label>
+    <!-- SECTION FILE UPLOAD -->
+    <article class="flex-col gap-4 pb-6 !h-fit !duration-300 !ease-in-out transition-height overflow-hidden hidden" id={section_id}></article>
+</article>

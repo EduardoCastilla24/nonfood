@@ -1,0 +1,60 @@
+---
+    interface Props {
+        title: string;
+        subtitle?: string;
+        isModal?: boolean;
+    }
+
+    const {title, subtitle, isModal} = Astro.props
+---
+
+<section class="bg-white shadow-sm rounded-xl w-fit flex flex-col items-center">
+    <!-- HEAD -->
+    <article class="flex items-center justify-between w-full h-20 gap-4 p-4 border-b-2 border-gray-200">
+        <div class="flex gap-4 px-4">
+            <!-- ICON MODAL -->
+            <div class:list={[
+                "items-center justify-center w-12 h-12 border border-gray-200 rounded-full ",
+                {
+                    "hidden":isModal,
+                    "flex":!isModal
+                }
+            ]}>
+                <i class='text-xl bx bx-cloud-light-rain'></i>
+            </div>
+            <!-- HEADER TEXT -->
+            <div class="flex flex-col gap-1">
+                <h3 class="font-bold text-primary-color">{title}</h3>
+                <p class:list={[
+                    "text-xs text-gray-color",
+                    {
+                        "hidden": isModal
+                    }
+                ]}>{subtitle}</p>
+            </div>
+        </div>
+        <button class:list={[
+            "h-8 w-8 border items-center justify-center rounded-md text-gray-color hover:scale-[1.02] duration-300 transition-all ease-in-out",
+            {
+                "flex": isModal,
+                "hidden": !isModal
+            }
+        ]}>
+            <i class="bx bx-x"></i>
+        </button>
+    </article>
+    <!-- SECTION FILE -->
+    <section class="flex-col flex gap-4 justify-center items-center bs:!flex-row w-full bs:w-fit px-8 py-6">
+        <slot></slot>
+    </section>
+    <!-- SECTION PROCESS BUTTON -->
+    <article class:list={[
+        "pb-8 px-8 !pt-0 w-full",
+        {
+            "hidden": isModal
+        }
+    ]}>
+        <button id="processButton" class="w-full py-2 text-sm text-white rounded-md shadow-md bg-first-color hover:scale-[1.02] duration-300 transition-all ease-in-out">Procesar TXT
+        </button>
+    </article>
+</section>

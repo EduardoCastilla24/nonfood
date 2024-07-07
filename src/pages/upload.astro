@@ -1,0 +1,47 @@
+---
+import Layout from "../layouts/Layout.astro"
+import InputLoad from "../components/InputLoad.astro"
+import Modal from "../components/Modal.astro"
+---
+
+<Layout title="Subida de Archivos">
+    <main class="flex items-center justify-center w-full p-8 bg-[#cbd0dc] h-screen">
+        <Modal
+            title="Subida de Archivos"
+            subtitle="Selecciona y sube los archivos para la actualizacion de datos">
+                <InputLoad
+                title="J08 - Vestuario"
+                input_id="upload-file_1"
+                section_id="section_cardFiles1"/>
+            <InputLoad
+                title="J09 - Hogar"
+                input_id="upload-file_2"
+                section_id="section_cardFiles2"/>
+            <InputLoad
+                title="J10 - Bazar"
+                input_id="upload-file_3"
+                section_id="section_cardFiles3"/>
+        </Modal>
+    </main>
+</Layout>
+
+<!--================== MEDIA QUERYS ==================-->
+<script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.js' is:inline></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js" is:inline></script>
+<script type="module" src="../js/index.js" is:inline></script>
+<script type="module" src="../js/createFile.js" is:inline></script>
+<script type="module" src="../js/sheets/functions/parseData.js" is:inline></script>
+<script type="module" src="../js/sheets/functions/filterData.js" is:inline></script>
+<script type="module" src="../js/sheets/functions/sendData.js" is:inline></script>
+<script type="module" src="../js/sheets/functions/appendData.js" is:inline></script>
+<script type="module" src="../js/sheets/functions/createSheet.js" is:inline></script>
+<script defer>
+    function deleteCardFile(element, sectionId) {
+        const cardContainer = element.closest('.cardFile-container');
+        cardContainer.classList.add('animate-delete')
+        setTimeout(() => {
+            document.getElementById(`section_cardFiles${sectionId}`).innerHTML = '' ;
+            cardContainer.remove();
+        }, "500");
+    }
+</script>
