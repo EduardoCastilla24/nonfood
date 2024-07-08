@@ -68,7 +68,8 @@ async function processFile(fileIndex, sectionId) {
     }
 }
 
-
-document.getElementById('modal__close').onclick = function() {
+if(window.location.pathname == '/profundidad'){
+    document.getElementById('modal__close').onclick = function() {
     closeModal()
+    }
 }
