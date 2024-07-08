@@ -44,7 +44,6 @@ export async function getProductos(hoja) {
         // Llamada a tableProductos después de obtener los datos
 
     } catch (err) {
-        // document.getElementById('content').innerText = err.message;
-        alert('asd')
+        document.getElementById('content').innerText = err.message;
     }
 }

@@ -6,7 +6,8 @@ export async function sendDataToGoogleSheets(headers, data, fileName) {
     const gapiToken = JSON.parse(gapiTokenString);
     const accessToken = gapiToken.access_token;
 
-    const spreadsheetId = '1zEmjWMzGNjhOHGG_zsTltXUtfPiH3pWRewFYdd2vO0Y';
+    // const spreadsheetId = '1zEmjWMzGNjhOHGG_zsTltXUtfPiH3pWRewFYdd2vO0Y';
+    const spreadsheetId = '1SQm2Ccg1cFJGWSbcX1dIpI01UsytOGn1UxzSkEJwmKs';
     const sheetName = fileName.replace(/\.txt$/, ''); // Usa el nombre del archivo sin la extensión como nombre de la hoja
 
     // Verificar si la hoja existe
