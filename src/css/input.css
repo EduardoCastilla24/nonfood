@@ -1,0 +1,23 @@
+	/* OVERLAY */
+	.overlay{
+		@apply fixed opacity-0 top-0 w-full h-full bg-overlay-color -z-10
+	}
+	/* STATES */
+	.show{
+		@apply !scale-100 !opacity-100 !z-30 !flex !duration-[100ms] !transition-all !ease-in-out
+	}
+	.active{
+		@apply flex flex-col !scale-100 !opacity-100 !z-30 transition-all duration-300
+	}
+
+	#barcode{
+		@apply w-[200px] !h-fit
+	}
+
+	/* Estados */
+	.obsoleto{
+		@apply bg-[#ffc7ce] text-[#9c0006]
+	}
+	.activo{
+		@apply bg-[#c6efce] text-[#006100]
+	}

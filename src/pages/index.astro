@@ -5,7 +5,7 @@ import Layout from '../layouts/Layout.astro';
 <Layout
 	title="¡Bienvenido!">
 	<main
-		class="w-full min-h-screen antialiased bg-[url('/assets/background.png')] bg-cover flex items-center justify-center">
+		class="w-full min-h-screen antialiased bg-[url('/assets/background.webp')] bg-cover flex items-center justify-center">
 		<article class="flex flex-col gap-8 items-center">
 			<img
 				src="assets/tottus.svg"
@@ -23,8 +23,8 @@ import Layout from '../layouts/Layout.astro';
 	</main>
 </Layout>
 		<!--================== SCRIPTS ==================-->
-		<script async defer type="module" src="./js/sheets/auth.js" is:inline></script>
-		<script async defer type="module" src="./js/sheets/login.js" is:inline></script>
+		<script async type="module" src="./js/sheets/auth.js" is:inline></script>
+		<script async type="module" src="./js/sheets/login.js" is:inline></script>
 <style>
 	main {
 		padding: 1rem;

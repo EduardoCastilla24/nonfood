@@ -1,4 +1,5 @@
 
+import { getProductos } from "../sheets/sheets.js";
 // TODO(developer): Set to client ID and API key from the Developer Console
 const CLIENT_ID = '300968915925-043fkmt82s224l3ehdkrrjkjeo8tk9vp.apps.googleusercontent.com';
 const API_KEY = 'AIzaSyDLSImxjMpxtxTaeD1usnV1jm5HI_KDxhg';
@@ -17,8 +18,6 @@ let gisInited = false;
 
 document.getElementById('gapi').addEventListener('load', gapiLoaded());
 document.getElementById('gis').addEventListener('load', gisLoaded());
-
-// document.getElementById('signout_button').style.visibility = 'hidden';
 
 /**
  * Callback after api.js is loaded.
@@ -70,6 +69,10 @@ function restoreSession() {
     const storedToken = localStorage.getItem(TOKEN_STORAGE_KEY);
     if (storedToken) {
         gapi.client.setToken(JSON.parse(storedToken));
+
+        if(window.location.pathname === '/profundidad'){
+            getProductos('J08');
+        }
     }
 }
 
@@ -87,7 +90,7 @@ export function handleAuthClick() {
         // Redireccion a la pagina
         window.location.href = './profundidad';
         // Obtener los datos google sheets
-        // await getProductos('J08');
+        await getProductos('J08');
     };
 
     if (gapi.client.getToken() === null) {

@@ -4,6 +4,7 @@ import { csvDataLists, parseTXT } from "./sheets/functions/parseData.js";
 import { filterData } from "./sheets/functions/filterData.js";
 import { sendDataToGoogleSheets } from "./sheets/functions/sendData.js";
 import { deleteAllCardFileContainers } from "./sheets/functions/clearData.js";
+import { closeModal } from './modal.js';
 
 const uploadInputs = document.querySelectorAll('.upload-file');
 const processButton = document.getElementById('processButton');
@@ -35,25 +36,27 @@ uploadInputs.forEach((uploadInput, index) => {
     });
 });
 
-processButton.addEventListener('click', async function() {
-    const allPromises = [];
+if(window.location.pathname == '/upload'){
+    processButton.addEventListener('click', async function() {
+        const allPromises = [];
 
-    for (let sectionId in csvDataLists_) {
-        csvDataLists_[sectionId].forEach((csvData, index) => {
-            Notiflix.Loading.hourglass();
-            const promise = processFile(index, sectionId);
-            allPromises.push(promise);
-        });
-    }
+        for (let sectionId in csvDataLists_) {
+            csvDataLists_[sectionId].forEach((csvData, index) => {
+                Notiflix.Loading.hourglass();
+                const promise = processFile(index, sectionId);
+                allPromises.push(promise);
+            });
+        }
 
-    try {
-        await Promise.all(allPromises);
-        Notiflix.Loading.remove();
-        deleteAllCardFileContainers()
-    } catch (error) {
-        console.error("Ocurrió un error en el procesamiento:", error);
-    }
-});
+        try {
+            await Promise.all(allPromises);
+            Notiflix.Loading.remove();
+            deleteAllCardFileContainers()
+        } catch (error) {
+            console.error("Ocurrió un error en el procesamiento:", error);
+        }
+    });
+}
 
 async function processFile(fileIndex, sectionId) {
     const csvData = csvDataLists_[sectionId][fileIndex];
@@ -63,4 +66,9 @@ async function processFile(fileIndex, sectionId) {
     } else {
         console.log(`No se ha cargado el archivo con índice ${fileIndex} en la sección ${sectionId}.`);
     }
+}
+
+
+document.getElementById('modal__close').onclick = function() {
+    closeModal()
 }

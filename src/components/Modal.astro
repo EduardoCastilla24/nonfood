@@ -1,60 +1,71 @@
 ---
     interface Props {
-        title: string;
+        title?: string;
         subtitle?: string;
         isModal?: boolean;
+        isShow?: boolean
+        id?: string
     }
 
-    const {title, subtitle, isModal} = Astro.props
+    const {id, title, subtitle, isModal} = Astro.props
 ---
 
-<section class="bg-white shadow-sm rounded-xl w-fit flex flex-col items-center">
-    <!-- HEAD -->
-    <article class="flex items-center justify-between w-full h-20 gap-4 p-4 border-b-2 border-gray-200">
-        <div class="flex gap-4 px-4">
-            <!-- ICON MODAL -->
-            <div class:list={[
-                "items-center justify-center w-12 h-12 border border-gray-200 rounded-full ",
-                {
-                    "hidden":isModal,
-                    "flex":!isModal
-                }
-            ]}>
-                <i class='text-xl bx bx-cloud-light-rain'></i>
-            </div>
-            <!-- HEADER TEXT -->
-            <div class="flex flex-col gap-1">
-                <h3 class="font-bold text-first-color text-xl">{title}</h3>
-                <p class:list={[
-                    "text-xs text-gray-color",
+<section class:list={[
+    " items-center justify-center hidden",
+    {
+        "!flex bg-white" : !isModal,
+        "absolute top-0 left-0 w-full h-screen":isModal
+    }
+
+]} id="section__modal">
+    <article class="bg-white shadow-sm rounded-xl flex-col items-center justify-center w-fit" id={id}>
+        <!-- HEAD -->
+        <article class="flex items-center justify-between h-20 gap-4 p-4 border-b-2 border-gray-200 bg-white rounded-t-xl w-full" >
+            <div class="flex gap-4 px-4">
+                <!-- ICON MODAL -->
+                <div class:list={[
+                    "items-center justify-center w-12 h-12 border border-gray-200 rounded-full flex",
                     {
-                        "hidden": isModal
+                        "hidden":isModal,
+                        "flex":!isModal
                     }
-                ]}>{subtitle}</p>
+                ]}>
+                    <i class='text-xl bx bx-cloud-light-rain'></i>
+                </div>
+                <!-- HEADER TEXT -->
+                <div class="flex flex-col gap-1">
+                    <h3 class="font-bold text-first-color text-xl" id="modal__title">{title}</h3>
+                    <p class:list={[
+                        "text-xs text-gray-color",
+                        {
+                            "hidden": isModal
+                        }
+                    ]}>{subtitle}</p>
+                </div>
             </div>
-        </div>
-        <button class:list={[
-            "h-8 w-8 border items-center justify-center rounded-md text-gray-color hover:scale-[1.02] duration-300 transition-all ease-in-out",
+            <button type="button" class:list={[
+                "h-8 w-8 border items-center justify-center rounded-md text-gray-color hover:scale-[1.02] duration-300 transition-all ease-in-out",
+                {
+                    "flex": isModal,
+                    "hidden": !isModal
+                }
+            ]} id="modal__close">
+                <i class="bx bx-x"></i>
+            </button>
+        </article>
+        <!-- SECTION FILE -->
+        <section class="flex-col flex gap-4 justify-center items-center bs:!flex-row w-full bs:w-fit px-8 py-6">
+            <slot></slot>
+        </section>
+        <!-- SECTION PROCESS BUTTON -->
+        <article class:list={[
+            "pb-8 px-8 !pt-0 w-full",
             {
-                "flex": isModal,
-                "hidden": !isModal
+                "hidden": isModal
             }
         ]}>
-            <i class="bx bx-x"></i>
-        </button>
-    </article>
-    <!-- SECTION FILE -->
-    <section class="flex-col flex gap-4 justify-center items-center bs:!flex-row w-full bs:w-fit px-8 py-6">
-        <slot></slot>
-    </section>
-    <!-- SECTION PROCESS BUTTON -->
-    <article class:list={[
-        "pb-8 px-8 !pt-0 w-full",
-        {
-            "hidden": isModal
-        }
-    ]}>
-        <button id="processButton" class="w-full py-2 text-sm text-white rounded-md shadow-md bg-first-color hover:scale-[1.02] duration-300 transition-all ease-in-out">Procesar TXT
-        </button>
+            <button id="processButton" class="w-full py-2 text-sm text-white rounded-md shadow-md bg-first-color hover:scale-[1.02] duration-300 transition-all ease-in-out">Procesar TXT
+            </button>
+        </article>
     </article>
 </section>

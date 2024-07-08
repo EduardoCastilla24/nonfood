@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Navbar from "../components/NavBar.astro"
+import Table from "../components/Table.astro"
+import Modal from "../components/Modal.astro"
+---
+
+<Layout title="Profundidad Nonfood">
+    <div id="overlay" class="overlay fixed opacity-0 top-0 w-full h-full bg-overlay-color -z-10"></div>
+    <main class="flex flex-col relative">
+        <Navbar/>
+        <Table/>
+        <Modal
+            isModal={true}
+            isShow={false}
+            id="modal">
+                <!-- MODAL CONTENT-->
+                <form method="POST" id="form-newCategoria">
+                    <!-- MODAL BODY -->
+                    <div class="modal__form">
+                        <div class="!flex !flex-col gap-2 justify-center items-center">
+                            <svg id="barcode" class="!w-full"></svg>
+                            <p id="ean" class="text-xs text-center"></p>
+                        </div>
+                        <div class="form__element">
+                            <span class="flex items-center justify-between w-full">
+                                <label for="descripcion" class="form__element--label">Descripción</label>
+                                <p id="estado" class="px-4 py-[.2rem] text-[.7rem] rounded-md "></p>
+                            </span>
+                            <input type="text" name="descripcion" id="descripcion" class="peer form__element--input" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]" readonly>
+                        </div>
+                        <div class="!grid !grid-cols-2 gap-4">
+                            <div class="form__element !col-span-1">
+                                <label for="precio" class="form__element--label">Precio</label>
+                                <input type="text" name="precio" id="precio" class="peer form__element--input" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]" readonly>
+                            </div>
+                            <div class="form__element !col-span-1">
+                                <label for="oh" class="form__element--label">OH</label>
+                                <input type="text" name="oh" id="oh" class="peer form__element--input" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]" readonly>
+                            </div>
+                        </div>
+                        <div class="form__element !col-span-1">
+                            <label for="marca" class="form__element--label">Marca</label>
+                            <input type="text" name="marca" id="marca" class="peer form__element--input" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]" readonly>
+                        </div>
+                        <div class="!grid !grid-cols-2 gap-4">
+                            <div class="form__element !col-span-1">
+                                <label for="asst" class="form__element--label">Asst.</label>
+                                <input type="text" name="asst" id="asst" class="peer form__element--input" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]" readonly>
+                            </div>
+                            <div class="form__element !col-span-1">
+                                <label for="sku" class="form__element--label">Sku</label>
+                                <input type="text" name="sku" id="sku" class="peer form__element--input" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+        </Modal>
+    </main>
+</Layout>
+

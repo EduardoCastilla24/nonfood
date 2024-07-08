@@ -1,0 +1,19 @@
+
+.section__modal.show{
+    @apply !duration-200 origin-center !scale-100
+}
+
+/* INPUTS */
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+    -webkit-text-fill-color:#000 !important;
+}
+.form__element{
+    @apply col-span-2 md:col-span-1 relative z-0 mb-2 w-full flex flex-col gap-2 items-start
+}
+.form__element--label{
+    @apply block text-[.7rem] font-medium text-gray-400 tracking-wider
+}
+.form__element--input{
+    @apply shadow-sm bg-white border border-gray-300 text-gray-900 text-[.7rem] sm:text-sm rounded-lg focus:ring-first-color focus:border-first-color block w-full p-2.5 invalid:bg-red-200 invalid:border-red-500 invalid:focus:border-red-500 !transition-all !duration-300
+}
