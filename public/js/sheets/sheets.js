@@ -44,6 +44,21 @@ export async function getProductos(hoja) {
         // Llamada a tableProductos después de obtener los datos
 
     } catch (err) {
-        document.getElementById('content').innerText = err.message;
+        if (err.status === 401) {
+            // Manejar específicamente el error 401
+            Notiflix.Report.warning(
+                '¡Expiro la sesión!',
+                '"Vuelve a iniciar sesion para continuar',
+                'Okay',
+                () => {
+                    localStorage.removeItem('gapi_token');
+                    window.location.href = '/';
+                }
+            );
+
+        } else {
+            // Manejar otros tipos de errores
+            document.getElementById('content').innerText = `Error: ${err.message}`;
+        }
     }
 }
