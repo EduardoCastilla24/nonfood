@@ -8,8 +8,8 @@ import Modal from "../components/Modal.astro"
 ---
 
 <Layout title="Profundidad Nonfood">
-    <div id="overlay" class="overlay fixed opacity-0 top-0 w-full h-full bg-overlay-color -z-10"></div>
-    <main class="flex flex-col relative">
+    <div id="overlay" class="overlay !fixed opacity-0 top-0 w-full h-full bg-overlay-color -z-10"></div>
+    <main class="flex flex-col relative bg-[#f8fafc]">
         <Navbar/>
         <Table/>
         <Modal
@@ -17,7 +17,7 @@ import Modal from "../components/Modal.astro"
             isShow={false}
             id="modal">
                 <!-- MODAL CONTENT-->
-                <form method="POST" id="form-newCategoria">
+                <form method="POST" id="form-newCategoria" class="w-full">
                     <!-- MODAL BODY -->
                     <div class="modal__form">
                         <div class="!flex !flex-col gap-2 justify-center items-center">

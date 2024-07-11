@@ -11,20 +11,20 @@
 ---
 
 <section class:list={[
-    " items-center justify-center hidden rounded-xl",
+    "items-center justify-center rounded-xl px-2 sm:px-4 flex !duration-500 ",
     {
-        "!flex bg-white" : !isModal,
-        "absolute top-0 left-0 w-full h-screen":isModal
+        "bg-white" : !isModal,
+        "fixed top-0 left-0 w-full h-screen !transition-all !ease-in-out !scale-0 !opacity-0 !z-30": isModal
     }
 
 ]} id="section__modal">
-    <article class="bg-white shadow-sm rounded-xl flex-col items-center justify-center w-fit" id={id}>
+    <article class="bg-white shadow-sm rounded-xl flex-col items-center justify-center w-11/12 max-h-[50rem] sm:w-fit scale-0 z-30 !transition-all !duration-300 ease-in-out !origin-center" id={id}>
         <!-- HEAD -->
-        <article class="flex items-center justify-between h-20 gap-4 p-4 border-b-2 border-gray-200 bg-white rounded-t-xl w-full" >
-            <div class="flex gap-4 px-4">
+        <article class="flex items-center justify-between h-fit gap-4 p-4 border-b-2 border-gray-200 bg-white rounded-t-xl w-full" >
+            <div class="flex gap-4 px-4 h-fit">
                 <!-- ICON MODAL -->
                 <div class:list={[
-                    "items-center justify-center w-12 h-12 border border-gray-200 rounded-full flex",
+                    "items-center justify-center w-10 h-10 border border-gray-200 rounded-full flex",
                     {
                         "hidden":isModal,
                         "flex":!isModal
@@ -34,7 +34,7 @@
                 </div>
                 <!-- HEADER TEXT -->
                 <div class="flex flex-col gap-1">
-                    <h3 class="font-bold text-first-color text-xl" id="modal__title">{title}</h3>
+                    <h3 class="font-bold text-first-color text-sm xs:text-md" id="modal__title">{title}</h3>
                     <p class:list={[
                         "text-xs text-gray-color",
                         {
@@ -54,7 +54,15 @@
             </button>
         </article>
         <!-- SECTION FILE -->
-        <section class="flex-col flex gap-4 justify-center items-center bs:!flex-row w-full bs:w-fit px-8 py-6">
+        <section class:list={
+            [
+                "flex-col flex gap-4 justify-center items-center bs:!flex-row w-full bs:w-fit py-6",
+                {
+                    "px-8": !isModal,
+                    "px-6": isModal
+                }
+            ]
+        }>
             <slot></slot>
         </section>
         <!-- SECTION PROCESS BUTTON -->
