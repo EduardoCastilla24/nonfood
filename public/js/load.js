@@ -1,4 +1,3 @@
-// src/utils/token.js
 export function LoadPages() {
   const tokenData = localStorage.getItem('gapi_token');
   const currentPath = window.location.pathname;

@@ -36,7 +36,7 @@ import Modal from "../components/Modal.astro"
 <script type="module" src="../js/sheets/functions/sendData.js" is:inline></script>
 <script type="module" src="../js/sheets/functions/appendData.js" is:inline></script>
 <script type="module" src="../js/sheets/functions/createSheet.js" is:inline></script>
-<script defer>
+<script defer is:inline>
     function deleteCardFile(element, sectionId) {
         const cardContainer = element.closest('.cardFile-container');
         cardContainer.classList.add('animate-delete')

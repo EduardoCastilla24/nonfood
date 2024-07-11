@@ -4,7 +4,6 @@ import { csvDataLists, parseTXT } from "./sheets/functions/parseData.js";
 import { filterData } from "./sheets/functions/filterData.js";
 import { sendDataToGoogleSheets } from "./sheets/functions/sendData.js";
 import { deleteAllCardFileContainers } from "./sheets/functions/clearData.js";
-import { closeModal } from './modal.js';
 
 const uploadInputs = document.querySelectorAll('.upload-file');
 const processButton = document.getElementById('processButton');
@@ -36,7 +35,7 @@ uploadInputs.forEach((uploadInput, index) => {
     });
 });
 
-if(window.location.pathname == '/upload'){
+if(window.location.pathname == '/upload/'){
     processButton.addEventListener('click', async function() {
         const allPromises = [];
 
@@ -65,11 +64,5 @@ async function processFile(fileIndex, sectionId) {
         await sendDataToGoogleSheets(csvData.headers, filteredData, csvData.fileName);
     } else {
         console.log(`No se ha cargado el archivo con índice ${fileIndex} en la sección ${sectionId}.`);
-    }
-}
-
-if(window.location.pathname == '/profundidad'){
-    document.getElementById('modal__close').onclick = function() {
-    closeModal()
     }
 }

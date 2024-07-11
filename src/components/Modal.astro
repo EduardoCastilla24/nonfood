@@ -69,3 +69,11 @@
         </article>
     </article>
 </section>
+
+<script type="module" is:inline>
+    import { closeModal } from "../js/modal.js"
+
+    document.getElementById('modal__close').onclick = function() {
+            closeModal()
+        }
+</script>

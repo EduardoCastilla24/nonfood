@@ -1,5 +1,5 @@
 
-import { getProductos } from "../sheets/sheets.js";
+import { getProductos } from "./sheets.js";
 // TODO(developer): Set to client ID and API key from the Developer Console
 const CLIENT_ID = '300968915925-043fkmt82s224l3ehdkrrjkjeo8tk9vp.apps.googleusercontent.com';
 const API_KEY = 'AIzaSyDLSImxjMpxtxTaeD1usnV1jm5HI_KDxhg';
@@ -65,14 +65,14 @@ function maybeEnableButtons() {
 /**
  * Restore the session from storage if a token is available.
  */
-function restoreSession() {
+export function restoreSession() {
     const storedToken = localStorage.getItem(TOKEN_STORAGE_KEY);
     if (storedToken) {
-        gapi.client.setToken(JSON.parse(storedToken));
 
-        if(window.location.pathname === '/profundidad'){
+        if(window.location.pathname === '/profundidad/'){
             getProductos('J08');
         }
+        gapi.client.setToken(JSON.parse(storedToken));
     }
 }
 
@@ -88,9 +88,9 @@ export function handleAuthClick() {
         // Guardar el token en el almacenamiento de sesión
         localStorage.setItem(TOKEN_STORAGE_KEY, JSON.stringify(gapi.client.getToken()));
         // Redireccion a la pagina
-        window.location.href = './profundidad';
+        window.location.href = '/profundidad/';
         // Obtener los datos google sheets
-        await getProductos('J08');
+        getProductos('J08');
     };
 
     if (gapi.client.getToken() === null) {

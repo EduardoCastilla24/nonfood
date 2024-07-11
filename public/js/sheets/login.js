@@ -1,11 +1,12 @@
 import { handleAuthClick } from './auth.js';
 
 // Check if the user is already authenticated
-const isAuthenticated = false/* implement your check here, e.g., check cookies or localStorage */;
+const tokenData = localStorage.getItem('gapi_token');
+const parsedData = JSON.parse(tokenData);
 
-if (isAuthenticated) {
+if (parsedData.access_token) {
     // User is authenticated, show the dashboard
-    window.location.href = './profundidad';
+    window.location.href = '/profundidad/';
 } else {
     // User is not authenticated, show the login page
     var isTouchDevice = 'ontouchstart' in document.documentElement;
