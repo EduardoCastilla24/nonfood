@@ -11,14 +11,14 @@
 ---
 
 <section class:list={[
-    "items-center justify-center rounded-xl px-2 sm:px-4 flex !duration-500 ",
+    "items-center justify-center rounded-xl  flex !duration-500 ",
     {
         "bg-white" : !isModal,
-        "fixed top-0 left-0 w-full h-screen !transition-all !ease-in-out !scale-0 !opacity-0 !z-30": isModal
+        "fixed top-0 left-0 w-full h-screen !transition-all !ease-in-out !scale-0 !opacity-0 !z-30 px-2 sm:px-4": isModal
     }
 
 ]} id="section__modal">
-    <article class="bg-white shadow-sm rounded-xl flex-col items-center justify-center w-11/12 max-h-[50rem] sm:w-fit scale-0 z-30 !transition-all !duration-300 ease-in-out !origin-center" id={id}>
+    <article class="bg-white shadow-sm rounded-xl flex-col items-center justify-center w-11/12 max-h-[50rem] sm:w-fit z-30 !transition-all !duration-300 ease-in-out !origin-center" id={id}>
         <!-- HEAD -->
         <article class="flex items-center justify-between h-fit gap-4 p-4 border-b-2 border-gray-200 bg-white rounded-t-xl w-full" >
             <div class="flex gap-4 px-4 h-fit">

@@ -14,7 +14,7 @@ export function LoadPages() {
         console.log('Token ha expirado');
         window.location.href = '/'; // Redirige a la página de inicio si el token ha expirado
       } else {
-        console.log('Access token:', parsedData.access_token);
+        // console.log('Access token:', parsedData.access_token);
         // Aquí puedes agregar cualquier lógica adicional que necesites
       }
     } catch (e) {

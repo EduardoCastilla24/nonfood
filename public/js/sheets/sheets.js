@@ -48,8 +48,8 @@ export async function getProductos(hoja) {
             // Manejar específicamente el error 401
             Notiflix.Report.warning(
                 '¡Expiro la sesión!',
-                '"Vuelve a iniciar sesion para continuar',
-                'Okay',
+                'El aplicativo tiene un limite de tiempo para su actividad. Vuelve a iniciar sesión para continuar',
+                'Entendido',
                 () => {
                     localStorage.removeItem('gapi_token');
                     window.location.href = '/';

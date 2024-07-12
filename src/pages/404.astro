@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro"
+---
+
+<Layout title="404 - No encontrado">
+    <main class="flex flex-col w-full h-screen items-center justify-center px-10">
+        <div class="max-w-[20rem] flex flex-col items-center justify-center gap-2 tracking-wide">
+            <h3 class="text-first-color text-3xl font-extrabold">¡Ooooops...!</h3>
+            <p class="text-sm text-pretty  font-light text-opacity-50 text-black">No se ha podido encontrar la página a la que quieres acceder, verificala y vuelve a intentarlo</p>
+        </div>
+        <picture >
+            <img class="w-[30rem]" src="/assets/404_Cat.svg" alt="404 Cat">
+        </picture>
+        <button id="back_button" class="w-fit px-10 py-2 text-sm text-white rounded-md shadow-md bg-first-color hover:scale-[1.02] duration-300 transition-all ease-in-out">Ir a la pagína anterior</button>
+    </main>
+</Layout>
+
+<script>
+    document.getElementById('back_button')?.addEventListener('click', ()=>{history.back()})
+</script>
