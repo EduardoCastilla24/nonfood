@@ -17,7 +17,7 @@ export function Modal(descripcion, ean, precio, oh, asst, division, estado, sku,
     sectionModal.classList.add('show')
     overlay.classList.add('show')
     modal.classList.add('active')
-
+    document.body.classList.add('overflow-hidden');
 
     estado == 'Obsoleto' ? inputEstado.classList.add('obsoleto') : inputEstado.classList.add('activo')
 
@@ -42,7 +42,7 @@ export function closeModal(){
     sectionModal.classList.remove('show')
     modal.classList.remove('active')
     overlay.classList.remove('show')
-
+    document.body.classList.remove('overflow-hidden');
     inputEstado.classList.contains('obsoleto') ? inputEstado.classList.remove('obsoleto') : inputEstado.classList.remove('activo')
 }
 
