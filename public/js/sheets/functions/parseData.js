@@ -20,9 +20,11 @@ export function parseTXT(contents, fileName, fileIndex, sectionId) {
 
     // Procesar las líneas de datos a partir de la línea 8
     const data = lines.slice(8).map(line => line.split('\t'));
+    // Obtener el nombre de archivo J08, J09, J10
+    const name = fileName.match(/_(J\d{2})_/)[1];
 
     const txtData = {
-        fileName: fileName,
+        fileName: name,
         headers: headers,
         data: data
     };
@@ -33,3 +35,4 @@ export function parseTXT(contents, fileName, fileIndex, sectionId) {
 
     csvDataLists[sectionId][fileIndex] = txtData; // Almacena los datos en la posición correspondiente al índice del archivo.
 }
+
