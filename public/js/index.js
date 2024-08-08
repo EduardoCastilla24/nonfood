@@ -19,8 +19,9 @@ uploadInputs.forEach((uploadInput, index) => {
             const file = files[i];
             if (file) {
                 const fileName = file.name;
-                const fileSize = file.size;
-                createCardFile(fileName, fileSize, i, sectionId);
+                //Ajustar el tamaño del archivo a MB
+                const fileSize = file.size /  (1024 * 1024);
+                createCardFile(fileName, fileSize.toFixed(2), i, sectionId);
 
                 const reader = new FileReader();
                 reader.onload = function(e) {

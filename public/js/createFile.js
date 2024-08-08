@@ -14,9 +14,9 @@ export function createCardFile(fileName, fileSize, fileIndex, sectionId) {
                     </svg>
 
                 </div>
-                <div class="cardFile-head flex flex-col w-full gap-1 pr-2 truncate">
-                    <h3 class="text-sm font-bold truncate text-black">${fileName}</h3>
-                    <p class="text-xs text-gray-color">${fileSize}</p>
+                <div class="cardFile-head flex flex-col w-full gap-1 pr-2 truncate max-w-[4.5rem]">
+                    <h3 class="text-sm font-bold truncate text-black" title="${fileName}">${fileName}</h3>
+                    <p class="text-xs text-gray-color">${fileSize} MB</p>
                 </div>
             </div>
             <button class="cardFile-delete flex items-center text-lg  justify-center h-full hover:bg-[#f7f7f7] hover:cursor-pointer text-gray-color hover:text-[#e81123] rounded-r-xl w-16" onclick="deleteCardFile(this, ${sectionId})">
